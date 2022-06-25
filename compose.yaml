@@ -1,0 +1,21 @@
+services:
+  db:
+    container_name: gormgql-container-db
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      TZ: 'Asia/Tokyo'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.docker/db/conf:/etc/mysql/conf.d:ro
+      - ./.docker/db/init:/docker-entrypoint-initdb.d:ro
+      - ./.docker/db/logs:/var/log/mysql:rw
+    platform: linux/amd64
+
+networks:
+  default:
+    name: gormgql-network-default

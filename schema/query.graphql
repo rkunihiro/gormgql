@@ -1,0 +1,26 @@
+type Query {
+    "Greeting message"
+    message: String!
+
+    "Current datetime"
+    now(
+        "Time zone (tz database)"
+        timezone: String! = "UTC"
+    ): DateTime!
+
+    "Find User by PostID"
+    post(
+        id: ID!
+    ): Post
+
+    "Find all User"
+    posts: [Post!]!
+
+    "Find User by UserID"
+    user(
+        id: ID!
+    ): User
+
+    "Find all User"
+    users: [User!]!
+}

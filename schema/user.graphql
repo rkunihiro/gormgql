@@ -1,0 +1,8 @@
+"User"
+type User {
+    "UserID"
+    id: ID!
+
+    "User name"
+    name: String!
+}

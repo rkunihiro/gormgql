@@ -1,0 +1,23 @@
+"User post"
+type Post {
+    "PostID"
+    id: ID!
+
+    "Author UserID"
+    authorId: ID!
+
+    "Author User"
+    author: User
+
+    "Post title"
+    title: String!
+
+    "Posted datetime"
+    posted: DateTime!
+}
+
+input CreatePostInput {
+    authorId: ID!
+    title: String!
+    posted: DateTime
+}
