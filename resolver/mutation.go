@@ -11,6 +11,7 @@ import (
 	"github.com/rkunihiro/gormgql/generated"
 )
 
+// CreatePost is the resolver for the createPost field.
 func (r *mutationResolver) CreatePost(ctx context.Context, input *generated.CreatePostInput) (*entity.Post, error) {
 	var posted *time.Time = nil
 	if input.Posted != nil {

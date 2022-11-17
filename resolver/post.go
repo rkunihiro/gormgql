@@ -11,6 +11,7 @@ import (
 	"github.com/rkunihiro/gormgql/scalar"
 )
 
+// Posted is the resolver for the posted field.
 func (r *postResolver) Posted(ctx context.Context, obj *entity.Post) (*scalar.DateTime, error) {
 	dt := scalar.DateTime(obj.Posted)
 	return &dt, nil

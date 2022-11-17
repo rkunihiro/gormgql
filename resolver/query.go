@@ -13,10 +13,12 @@ import (
 	"github.com/rkunihiro/gormgql/scalar"
 )
 
+// Message is the resolver for the message field.
 func (r *queryResolver) Message(ctx context.Context) (string, error) {
 	return "Hello,World!", nil
 }
 
+// Now is the resolver for the now field.
 func (r *queryResolver) Now(ctx context.Context, timezone string) (*scalar.DateTime, error) {
 	loc, err := time.LoadLocation(timezone)
 	if err != nil {
@@ -26,18 +28,22 @@ func (r *queryResolver) Now(ctx context.Context, timezone string) (*scalar.DateT
 	return &dt, nil
 }
 
+// Post is the resolver for the post field.
 func (r *queryResolver) Post(ctx context.Context, id int) (*entity.Post, error) {
 	return r.Resolver.postRepo.FindByID(id)
 }
 
+// Posts is the resolver for the posts field.
 func (r *queryResolver) Posts(ctx context.Context) ([]*entity.Post, error) {
 	return r.Resolver.postRepo.Find()
 }
 
+// User is the resolver for the user field.
 func (r *queryResolver) User(ctx context.Context, id int) (*entity.User, error) {
 	return r.Resolver.userRepo.FindByID(id)
 }
 
+// Users is the resolver for the users field.
 func (r *queryResolver) Users(ctx context.Context) ([]*entity.User, error) {
 	return r.Resolver.userRepo.Find()
 }
